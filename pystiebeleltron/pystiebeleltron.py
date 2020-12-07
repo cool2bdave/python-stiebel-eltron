@@ -173,93 +173,94 @@ B3_BUS_STATUS = {
 }
 
 # WPM 3(i) Block 1 System values (Read input register) - page 22-23
+#TODO: Istead of using A B C as the suffix to differentiate between registers use the comments in the datasheet
 #TODO: The addresses were out by one, 1 has been deducted from each. Why???
-WPM3i_B1_START_ADDR = 500
+WPM3i_B1_START_ADDR = 501-1
 
 WPM3i_B1_REGMAP_INPUT =             {
-    'ACTUAL_TEMPERATURE_FE7':       {'addr': 500, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_FE7':          {'addr': 501, 'type': 2, 'value': 0},
-    'ACTUAL_TEMPERATURE_FEK':       {'addr': 502, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_FEK':          {'addr': 503, 'type': 2, 'value': 0},
-    'RELATIVE_HUMIDITY':            {'addr': 504, 'type': 2, 'value': 0},
-    'DEW_POINT_TEMPERATURE':        {'addr': 505, 'type': 2, 'value': 0},
-    'OUTSIDE_TEMPERATURE':          {'addr': 506, 'type': 2, 'value': 0},
-    'ACTUAL_TEMPERATURE_HK_1':      {'addr': 507, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_HK_1_A':       {'addr': 508, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_HK_1_B':       {'addr': 509, 'type': 2, 'value': 0},
-    'ACTUAL_TEMPERATURE_HK_2':      {'addr': 510, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_HK_2':         {'addr': 511, 'type': 2, 'value': 0},
-    'ACTUAL_FLOW_TEMPERATURE_WP':   {'addr': 512, 'type': 2, 'value': 0},
-    'ACTUAL_FLOW_TEMPERATURE_NHZ':  {'addr': 513, 'type': 2, 'value': 0},
-    'ACTUAL_FLOW_TEMPERATURE':      {'addr': 514, 'type': 2, 'value': 0},
-    'ACTUAL_RETURN_TEMPERATURE':    {'addr': 515, 'type': 2, 'value': 0},
-    'SET_FIXED_TEMPERATURE':        {'addr': 516, 'type': 2, 'value': 0},
-    'ACTUAL_BUFFER_TEMPERATURE':    {'addr': 517, 'type': 2, 'value': 0},
-    'SET_BUFFER_TEMPERATURE':       {'addr': 518, 'type': 2, 'value': 0},
-    'HEATING_PRESSURE':             {'addr': 519, 'type': 7, 'value': 0},
-    'FLOW_RATE':                    {'addr': 520, 'type': 2, 'value': 0},
-    'ACTUAL_TEMPERATURE_A':         {'addr': 521, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_A':            {'addr': 522, 'type': 2, 'value': 0},
-    'ACTUAL_TEMPERATURE_FAN':       {'addr': 523, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_FAN':          {'addr': 524, 'type': 2, 'value': 0},
-    'ACTUAL_TEMPERATURE_AREA':      {'addr': 525, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_AREA':         {'addr': 526, 'type': 2, 'value': 0},
-    'COLLECTOR_TEMPERATURE':        {'addr': 527, 'type': 2, 'value': 0},
-    'CYLINDER_TEMPERATURE':         {'addr': 528, 'type': 2, 'value': 0},
-    'RUNTIME_A':                    {'addr': 529, 'type': 6, 'value': 0},
-    'ACTUAL_TEMPERATURE_B':         {'addr': 530, 'type': 2, 'value': 0},
-    'SET_TEMPERATURE_B':            {'addr': 531, 'type': 2, 'value': 0},
-    'APPLICATION_LIMIT_HZG':        {'addr': 532, 'type': 2, 'value': 0},
-    'APPLICATION_LIMIT_WW':         {'addr': 533, 'type': 2, 'value': 0},
-    'RUNTIME_B':                    {'addr': 534, 'type': 6, 'value': 0},
-    'SOURCE_TEMPERATURE':           {'addr': 535, 'type': 2, 'value': 0},
-    'MIN_SOURCE_TEMPERATURE':       {'addr': 536, 'type': 2, 'value': 0},
-    'SOURCE_PRESSURE':              {'addr': 537, 'type': 7, 'value': 0},
-    'HOT_GAS_TEMPERATURE_A':        {'addr': 538, 'type': 2, 'value': 0},
-    'HIGH_PRESSURE_A':              {'addr': 539, 'type': 2, 'value': 0},
-    'LOW_PRESSURE_A':               {'addr': 540, 'type': 2, 'value': 0},
-    'RETURN_TEMPERATURE_A':         {'addr': 541, 'type': 2, 'value': 0},
-    'FLOW_TEMPERATURE_B':           {'addr': 542, 'type': 2, 'value': 0},
-    'HOT_GAS_TEMPERATURE_B':        {'addr': 543, 'type': 2, 'value': 0},
-    'LOW_PRESSURE_B':               {'addr': 544, 'type': 7, 'value': 0},
-    'MEAN_PRESSURE_B':              {'addr': 545, 'type': 7, 'value': 0},
-    'HIGH_PRESSURE_B':              {'addr': 546, 'type': 7, 'value': 0},
-    'WP_WATER_FLOW_RATE_B':         {'addr': 547, 'type': 2, 'value': 0},
-    'RETURN_TEMPERATURE_B':         {'addr': 548, 'type': 2, 'value': 0},
-    'FLOW_TEMPERATURE_C':           {'addr': 549, 'type': 2, 'value': 0},
-    'HOT_GAS_TEMPERATURE_C':        {'addr': 550, 'type': 2, 'value': 0},
-    'LOW_PRESSURE_C':               {'addr': 551, 'type': 7, 'value': 0},
-    'MEAN_PRESSURE_C':              {'addr': 552, 'type': 7, 'value': 0},
-    'HIGH_PRESSURE_C':              {'addr': 553, 'type': 7, 'value': 0},
-    'WP_WATER_FLOW_RATE_C':         {'addr': 554, 'type': 2, 'value': 0},
-    'RETURN_TEMPERATURE_C':         {'addr': 555, 'type': 2, 'value': 0},
-    'FLOW_TEMPERATURE_D':           {'addr': 556, 'type': 2, 'value': 0},
-    'HOT_GAS_TEMPERATURE_D':        {'addr': 557, 'type': 2, 'value': 0},
-    'LOW_PRESSURE_D':               {'addr': 558, 'type': 7, 'value': 0},
-    'MEAN_PRESSURE_D':              {'addr': 559, 'type': 7, 'value': 0},
-    'HIGH_PRESSURE_D':              {'addr': 560, 'type': 7, 'value': 0},
-    'WP_WATER_FLOW_RATE_D':         {'addr': 561, 'type': 2, 'value': 0},
-    'RETURN_TEMPERATURE_D':         {'addr': 562, 'type': 2, 'value': 0},
-    'FLOW_TEMPERATURE_E':           {'addr': 563, 'type': 2, 'value': 0},
-    'HOT_GAS_TEMPERATURE_E':        {'addr': 564, 'type': 2, 'value': 0},
-    'LOW_PRESSURE_E':               {'addr': 565, 'type': 7, 'value': 0},
-    'MEAN_PRESSURE_E':              {'addr': 566, 'type': 7, 'value': 0},
-    'HIGH_PRESSURE_E':              {'addr': 567, 'type': 7, 'value': 0},
-    'WP_WATER_FLOW_RATE_E':         {'addr': 568, 'type': 2, 'value': 0},
-    'RETURN_TEMPERATURE_E':         {'addr': 569, 'type': 2, 'value': 0},
-    'FLOW_TEMPERATURE_F':           {'addr': 570, 'type': 2, 'value': 0},
-    'HOT_GAS_TEMPERATURE_F':        {'addr': 571, 'type': 2, 'value': 0},
-    'LOW_PRESSURE_F':               {'addr': 572, 'type': 7, 'value': 0},
-    'MEAN_PRESSURE_F':              {'addr': 573, 'type': 7, 'value': 0},
-    'HIGH_PRESSURE_F':              {'addr': 574, 'type': 7, 'value': 0},
-    'WP_WATER_FLOW_RATE_F':         {'addr': 575, 'type': 2, 'value': 0},
-    'RETURN_TEMPERATURE_F':         {'addr': 576, 'type': 2, 'value': 0},
-    'FLOW_TEMPERATURE_G':           {'addr': 577, 'type': 2, 'value': 0},
-    'HOT_GAS_TEMPERATURE_G':        {'addr': 578, 'type': 2, 'value': 0},
-    'LOW_PRESSURE_G':               {'addr': 579, 'type': 7, 'value': 0},
-    'MEAN_PRESSURE_G':              {'addr': 580, 'type': 7, 'value': 0},
-    'HIGH_PRESSURE_G':              {'addr': 581, 'type': 7, 'value': 0},
-    'WP_WATER_FLOW_RATE_G':         {'addr': 582, 'type': 2, 'value': 0}
+    'ACTUAL_TEMPERATURE_FE7':       {'addr': 501-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_FE7':          {'addr': 502-1, 'type': 2, 'value': 0},
+    'ACTUAL_TEMPERATURE_FEK':       {'addr': 503-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_FEK':          {'addr': 504-1, 'type': 2, 'value': 0},
+    'RELATIVE_HUMIDITY':            {'addr': 505-1, 'type': 2, 'value': 0},
+    'DEW_POINT_TEMPERATURE':        {'addr': 506-1, 'type': 2, 'value': 0},
+    'OUTSIDE_TEMPERATURE':          {'addr': 507-1, 'type': 2, 'value': 0},
+    'ACTUAL_TEMPERATURE_HK_1':      {'addr': 508-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_HK_1_A':       {'addr': 509-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_HK_1_B':       {'addr': 510-1, 'type': 2, 'value': 0},
+    'ACTUAL_TEMPERATURE_HK_2':      {'addr': 511-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_HK_2':         {'addr': 512-1, 'type': 2, 'value': 0},
+    'ACTUAL_FLOW_TEMPERATURE_WP':   {'addr': 513-1, 'type': 2, 'value': 0},
+    'ACTUAL_FLOW_TEMPERATURE_NHZ':  {'addr': 514-1, 'type': 2, 'value': 0},
+    'ACTUAL_FLOW_TEMPERATURE':      {'addr': 515-1, 'type': 2, 'value': 0},
+    'ACTUAL_RETURN_TEMPERATURE':    {'addr': 516-1, 'type': 2, 'value': 0},
+    'SET_FIXED_TEMPERATURE':        {'addr': 517-1, 'type': 2, 'value': 0},
+    'ACTUAL_BUFFER_TEMPERATURE':    {'addr': 518-1, 'type': 2, 'value': 0},
+    'SET_BUFFER_TEMPERATURE':       {'addr': 519-1, 'type': 2, 'value': 0},
+    'HEATING_PRESSURE':             {'addr': 520-1, 'type': 7, 'value': 0},
+    'FLOW_RATE':                    {'addr': 521-1, 'type': 2, 'value': 0},
+    'ACTUAL_TEMPERATURE_A':         {'addr': 522-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_A':            {'addr': 523-1, 'type': 2, 'value': 0},
+    'ACTUAL_TEMPERATURE_FAN':       {'addr': 524-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_FAN':          {'addr': 525-1, 'type': 2, 'value': 0},
+    'ACTUAL_TEMPERATURE_AREA':      {'addr': 526-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_AREA':         {'addr': 527-1, 'type': 2, 'value': 0},
+    'COLLECTOR_TEMPERATURE':        {'addr': 528-1, 'type': 2, 'value': 0},
+    'CYLINDER_TEMPERATURE':         {'addr': 529-1, 'type': 2, 'value': 0},
+    'RUNTIME_A':                    {'addr': 530-1, 'type': 6, 'value': 0},
+    'ACTUAL_TEMPERATURE_B':         {'addr': 531-1, 'type': 2, 'value': 0},
+    'SET_TEMPERATURE_B':            {'addr': 532-1, 'type': 2, 'value': 0},
+    'APPLICATION_LIMIT_HZG':        {'addr': 533-1, 'type': 2, 'value': 0},
+    'APPLICATION_LIMIT_WW':         {'addr': 534-1, 'type': 2, 'value': 0},
+    'RUNTIME_B':                    {'addr': 535-1, 'type': 6, 'value': 0},
+    'SOURCE_TEMPERATURE':           {'addr': 536-1, 'type': 2, 'value': 0},
+    'MIN_SOURCE_TEMPERATURE':       {'addr': 537-1, 'type': 2, 'value': 0},
+    'SOURCE_PRESSURE':              {'addr': 538-1, 'type': 7, 'value': 0},
+    'HOT_GAS_TEMPERATURE_A':        {'addr': 539-1, 'type': 2, 'value': 0},
+    'HIGH_PRESSURE_A':              {'addr': 540-1, 'type': 2, 'value': 0},
+    'LOW_PRESSURE_A':               {'addr': 541-1, 'type': 2, 'value': 0},
+    'RETURN_TEMPERATURE_A':         {'addr': 542-1, 'type': 2, 'value': 0},
+    'FLOW_TEMPERATURE_B':           {'addr': 543-1, 'type': 2, 'value': 0},
+    'HOT_GAS_TEMPERATURE_B':        {'addr': 544-1, 'type': 2, 'value': 0},
+    'LOW_PRESSURE_B':               {'addr': 545-1, 'type': 7, 'value': 0},
+    'MEAN_PRESSURE_B':              {'addr': 546-1, 'type': 7, 'value': 0},
+    'HIGH_PRESSURE_B':              {'addr': 547-1, 'type': 7, 'value': 0},
+    'WP_WATER_FLOW_RATE_B':         {'addr': 548-1, 'type': 2, 'value': 0},
+    'RETURN_TEMPERATURE_B':         {'addr': 549-1, 'type': 2, 'value': 0},
+    'FLOW_TEMPERATURE_C':           {'addr': 550-1, 'type': 2, 'value': 0},
+    'HOT_GAS_TEMPERATURE_C':        {'addr': 551-1, 'type': 2, 'value': 0},
+    'LOW_PRESSURE_C':               {'addr': 552-1, 'type': 7, 'value': 0},
+    'MEAN_PRESSURE_C':              {'addr': 553-1, 'type': 7, 'value': 0},
+    'HIGH_PRESSURE_C':              {'addr': 554-1, 'type': 7, 'value': 0},
+    'WP_WATER_FLOW_RATE_C':         {'addr': 555-1, 'type': 2, 'value': 0},
+    'RETURN_TEMPERATURE_C':         {'addr': 556-1, 'type': 2, 'value': 0},
+    'FLOW_TEMPERATURE_D':           {'addr': 557-1, 'type': 2, 'value': 0},
+    'HOT_GAS_TEMPERATURE_D':        {'addr': 558-1, 'type': 2, 'value': 0},
+    'LOW_PRESSURE_D':               {'addr': 559-1, 'type': 7, 'value': 0},
+    'MEAN_PRESSURE_D':              {'addr': 560-1, 'type': 7, 'value': 0},
+    'HIGH_PRESSURE_D':              {'addr': 561-1, 'type': 7, 'value': 0},
+    'WP_WATER_FLOW_RATE_D':         {'addr': 562-1, 'type': 2, 'value': 0},
+    'RETURN_TEMPERATURE_D':         {'addr': 563-1, 'type': 2, 'value': 0},
+    'FLOW_TEMPERATURE_E':           {'addr': 564-1, 'type': 2, 'value': 0},
+    'HOT_GAS_TEMPERATURE_E':        {'addr': 565-1, 'type': 2, 'value': 0},
+    'LOW_PRESSURE_E':               {'addr': 566-1, 'type': 7, 'value': 0},
+    'MEAN_PRESSURE_E':              {'addr': 567-1, 'type': 7, 'value': 0},
+    'HIGH_PRESSURE_E':              {'addr': 568-1, 'type': 7, 'value': 0},
+    'WP_WATER_FLOW_RATE_E':         {'addr': 569-1, 'type': 2, 'value': 0},
+    'RETURN_TEMPERATURE_E':         {'addr': 570-1, 'type': 2, 'value': 0},
+    'FLOW_TEMPERATURE_F':           {'addr': 571-1, 'type': 2, 'value': 0},
+    'HOT_GAS_TEMPERATURE_F':        {'addr': 572-1, 'type': 2, 'value': 0},
+    'LOW_PRESSURE_F':               {'addr': 573-1, 'type': 7, 'value': 0},
+    'MEAN_PRESSURE_F':              {'addr': 574-1, 'type': 7, 'value': 0},
+    'HIGH_PRESSURE_F':              {'addr': 575-1, 'type': 7, 'value': 0},
+    'WP_WATER_FLOW_RATE_F':         {'addr': 576-1, 'type': 2, 'value': 0},
+    'RETURN_TEMPERATURE_F':         {'addr': 577-1, 'type': 2, 'value': 0},
+    'FLOW_TEMPERATURE_G':           {'addr': 578-1, 'type': 2, 'value': 0},
+    'HOT_GAS_TEMPERATURE_G':        {'addr': 579-1, 'type': 2, 'value': 0},
+    'LOW_PRESSURE_G':               {'addr': 580-1, 'type': 7, 'value': 0},
+    'MEAN_PRESSURE_G':              {'addr': 581-1, 'type': 7, 'value': 0},
+    'HIGH_PRESSURE_G':              {'addr': 582-1, 'type': 7, 'value': 0},
+    'WP_WATER_FLOW_RATE_G':         {'addr': 583-1, 'type': 2, 'value': 0}
 }
 
 # WPM 3(i) Block 2 System parameters (Read/write holding register) - page 24
@@ -379,6 +380,155 @@ WPM3i_B3_BUS_STATUS = {
     'PHYSICAL-ERROR': -4
 }
 
+# Block 4 System status (Read input register) - page 26
+WPM3i_B4_START_ADDR = 3501-1
+
+WPM3i_B4_REGMAP_INPUT = {
+    'VD_HEATING_DAY_A':          {'addr': 3501-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_KWH':      {'addr': 3502-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_MWH':      {'addr': 3503-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_A':              {'addr': 3504-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_A1':           {'addr': 3505-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_A2':           {'addr': 3506-1, 'type': 6, 'value': 0},
+    'NHZ_HEATING_TOTAL_A1':      {'addr': 3507-1, 'type': 6, 'value': 0},
+    'NHZ_HEATING_TOTAL_A2':      {'addr': 3508-1, 'type': 6, 'value': 0},
+    'NHZ_DHW_TOTAL_A1':          {'addr': 3509-1, 'type': 6, 'value': 0},
+    'NHZ_DHW_TOTAL_A2':          {'addr': 3510-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_B':          {'addr': 3511-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_B1':       {'addr': 3512-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_B2':       {'addr': 3513-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_B':              {'addr': 3514-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_B1':           {'addr': 3515-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_B2':           {'addr': 3516-1, 'type': 6, 'value': 0},
+    'VD_HEATING_B':              {'addr': 3517-1, 'type': 6, 'value': 0},
+    'VD_DHW_B':                  {'addr': 3518-1, 'type': 6, 'value': 0},
+    'VD_COOLING_B':              {'addr': 3519-1, 'type': 6, 'value': 0},
+    'NHZ_1_B':                   {'addr': 3520-1, 'type': 6, 'value': 0},
+    'NHZ_2_B':                   {'addr': 3521-1, 'type': 6, 'value': 0},
+    'NHZ_1_AND_2_B':             {'addr': 3522-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_C':          {'addr': 3523-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_C1':       {'addr': 3524-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_C2':       {'addr': 3525-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_C':              {'addr': 3526-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_C1':           {'addr': 3527-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_C2':           {'addr': 3528-1, 'type': 6, 'value': 0},
+    'NHZ_HEATING_TOTAL_C1':      {'addr': 3529-1, 'type': 6, 'value': 0},
+    'NHZ_HEATING_TOTAL_C2':      {'addr': 3530-1, 'type': 6, 'value': 0},
+    'NHZ_DHW_TOTAL_C1':          {'addr': 3531-1, 'type': 6, 'value': 0},
+    'NHZ_DHW_TOTAL_C2':          {'addr': 3532-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_D':          {'addr': 3533-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_D1':       {'addr': 3534-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_D2':       {'addr': 3535-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_D':              {'addr': 3536-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_D1':           {'addr': 3537-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_D2':           {'addr': 3538-1, 'type': 6, 'value': 0},
+    'VD_HEATING_D':              {'addr': 3539-1, 'type': 6, 'value': 0},
+    'VD_2_HEATING_D':            {'addr': 3540-1, 'type': 6, 'value': 0},
+    'VD_1_AND_2_HEATING_D':      {'addr': 3541-1, 'type': 6, 'value': 0},
+    'VD_DHW_D':                  {'addr': 3542-1, 'type': 6, 'value': 0},
+    'VD_2_DHW_D':                {'addr': 3543-1, 'type': 6, 'value': 0},
+    'VD_1_AND_2_DHW_D':          {'addr': 3544-1, 'type': 6, 'value': 0},
+    'VD_COOLING_D':              {'addr': 3545-1, 'type': 6, 'value': 0},
+    'NHZ_1_D':                   {'addr': 3546-1, 'type': 6, 'value': 0},
+    'NHZ_2_D':                   {'addr': 3547-1, 'type': 6, 'value': 0},
+    'NHZ_1_AND_2_D':             {'addr': 3548-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_E':          {'addr': 3549-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_E1':       {'addr': 3550-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_E2':       {'addr': 3551-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_E':              {'addr': 3552-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_E1':           {'addr': 3553-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_E2':           {'addr': 3554-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_F':          {'addr': 3555-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_F1':       {'addr': 3556-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_F2':       {'addr': 3557-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_F':              {'addr': 3558-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_F1':           {'addr': 3559-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_F2':           {'addr': 3560-1, 'type': 6, 'value': 0},
+    'VD_HEATING_F':              {'addr': 3561-1, 'type': 6, 'value': 0},
+    'VD_2_HEATING_F':            {'addr': 3562-1, 'type': 6, 'value': 0},
+    'VD_1_AND_2_HEATING_F':      {'addr': 3563-1, 'type': 6, 'value': 0},
+    'VD_DHW_F':                  {'addr': 3564-1, 'type': 6, 'value': 0},
+    'VD_2_DHW_F':                {'addr': 3565-1, 'type': 6, 'value': 0},
+    'VD_1_AND_2_DHW_F':          {'addr': 3566-1, 'type': 6, 'value': 0},
+    'VD_COOLING_F':              {'addr': 3567-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_G':          {'addr': 3568-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_G1':       {'addr': 3569-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_G2':       {'addr': 3570-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_G':              {'addr': 3571-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_G1':           {'addr': 3572-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_G2':           {'addr': 3573-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_H':          {'addr': 3574-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_H1':       {'addr': 3575-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_H2':       {'addr': 3576-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_H':              {'addr': 3577-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_H1':           {'addr': 3578-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_H2':           {'addr': 3579-1, 'type': 6, 'value': 0},
+    'VD_HEATING_H':              {'addr': 3580-1, 'type': 6, 'value': 0},
+    'VD_2_HEATING_H':            {'addr': 3581-1, 'type': 6, 'value': 0},
+    'VD_1_AND_2_HEATING_H':      {'addr': 3582-1, 'type': 6, 'value': 0},
+    'VD_DHW_H':                  {'addr': 3583-1, 'type': 6, 'value': 0},
+    'VD_2_DHW_H':                {'addr': 3584-1, 'type': 6, 'value': 0},
+    'VD_1_AND_2_DHW_H':          {'addr': 3585-1, 'type': 6, 'value': 0},
+    'VD_COOLING_H':              {'addr': 3586-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_I':          {'addr': 3587-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_I1':       {'addr': 3588-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_I2':       {'addr': 3589-1, 'type': 6, 'value': 0},
+    'VD_DHW_DA_I':               {'addr': 3590-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_I1':           {'addr': 3591-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_I2':           {'addr': 3592-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_J':          {'addr': 3593-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_J1':       {'addr': 3594-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_J2':       {'addr': 3595-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_J':              {'addr': 3596-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_J1':           {'addr': 3597-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_J2':           {'addr': 3598-1, 'type': 6, 'value': 0},
+    'VD_HEATING_J':              {'addr': 3599-1, 'type': 6, 'value': 0},
+    'VD_2_HEATING_J':            {'addr': 3600-1, 'type': 6, 'value': 0},
+    'VD_1_AND_2_HEATING_J':      {'addr': 3601-1, 'type': 6, 'value': 0},
+    'VD_DHW_J':                  {'addr': 3602-1, 'type': 6, 'value': 0},
+    'VD_2_DHW_J':                {'addr': 3603-1, 'type': 6, 'value': 0},
+    'VD_1_AND_2_DHW_J':          {'addr': 3604-1, 'type': 6, 'value': 0},
+    'VD_COOLING_J':              {'addr': 3605-1, 'type': 6, 'value': 0},
+    'VD_HEATING_DAY_K':          {'addr': 3606-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_K1':       {'addr': 3607-1, 'type': 6, 'value': 0},
+    'VD_HEATING_TOTAL_K2':       {'addr': 3608-1, 'type': 6, 'value': 0},
+    'VD_DHW_DAY_K':              {'addr': 3609-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_K1':           {'addr': 3610-1, 'type': 6, 'value': 0},
+    'VD_DHW_TOTAL_K2':           {'addr': 3611-1, 'type': 6, 'value': 0}
+#    'VD_HEATING_DAY_L':          {'addr': 3612-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_TOTAL_L1':       {'addr': 3613-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_TOTAL_L2':       {'addr': 3614-1, 'type': 6, 'value': 0},
+#    'VD_DHW_DAY_L':              {'addr': 3615-1, 'type': 6, 'value': 0},
+#    'VD_DHW_TOTAL_L1':           {'addr': 3616-1, 'type': 6, 'value': 0},
+#    'VD_DHW_TOTAL_L2':           {'addr': 3617-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_L':              {'addr': 3618-1, 'type': 6, 'value': 0},
+#    'VD_2_HEATING_L':            {'addr': 3619-1, 'type': 6, 'value': 0},
+#    'VD_1_AND_2_HEATING_L':      {'addr': 3620-1, 'type': 6, 'value': 0},
+#    'VD_DHW_L':                  {'addr': 3621-1, 'type': 6, 'value': 0},
+#    'VD_2_DHW_L':                {'addr': 3622-1, 'type': 6, 'value': 0},
+#    'VD_1_AND_2_DHW_L':          {'addr': 3623-1, 'type': 6, 'value': 0},
+#    'VD_COOLING_L':              {'addr': 3624-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_DAY_M':          {'addr': 3625-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_TOTAL_M1':       {'addr': 3626-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_TOTAL_M2':       {'addr': 3627-1, 'type': 6, 'value': 0},
+#    'VD_DHW_DAY_M':              {'addr': 3628-1, 'type': 6, 'value': 0},
+#    'VD_DHW_TOTAL_M1':           {'addr': 3629-1, 'type': 6, 'value': 0},
+#    'VD_DHW_TOTAL_M2':           {'addr': 3630-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_DAY_N':          {'addr': 3631-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_TOTAL_N1':       {'addr': 3632-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_TOTAL_N2':       {'addr': 3633-1, 'type': 6, 'value': 0},
+#    'VD_DHW_DAY_N':              {'addr': 3634-1, 'type': 6, 'value': 0},
+#    'VD_DHW_TOTAL_N1':           {'addr': 3635-1, 'type': 6, 'value': 0},
+#    'VD_DHW_TOTAL_N2':           {'addr': 3636-1, 'type': 6, 'value': 0},
+#    'VD_HEATING_N':              {'addr': 3637-1, 'type': 6, 'value': 0},
+#    'VD_2_HEATING_N':            {'addr': 3638-1, 'type': 6, 'value': 0},
+#    'VD_1_AND_2_HEATING_N':      {'addr': 3639-1, 'type': 6, 'value': 0},
+#    'VD_DHW_N':                  {'addr': 3640-1, 'type': 6, 'value': 0},
+#    'VD_2_DHW_N':                {'addr': 3641-1, 'type': 6, 'value': 0},
+#    'VD_1_AND_2_DHW_N':          {'addr': 3642-1, 'type': 6, 'value': 0},
+#    'VD_COOLING_N':              {'addr': 3643-1, 'type': 6, 'value': 0}
+}
+
 class StiebelEltronAPI():
     """Stiebel Eltron API."""
 
@@ -386,19 +536,23 @@ class StiebelEltronAPI():
         """Initialize Stiebel Eltron communication."""
         self._conn = conn
         if is_wpm3i is False:
-            self._block_1_input_regs = B1_REGMAP_INPUT            
+            self._block_1_input_regs = B1_REGMAP_INPUT
             self._block_2_holding_regs = B2_REGMAP_HOLDING
             self._block_3_input_regs = B3_REGMAP_INPUT
+            self._block_4_input_regs = None
             self._block_1_start_address = B1_START_ADDR
             self._block_2_start_address = B2_START_ADDR
             self._block_3_start_address = B3_START_ADDR
+            self._block_4_start_address = None
         else:
             self._block_1_input_regs = WPM3i_B1_REGMAP_INPUT
             self._block_2_holding_regs = WPM3i_B2_REGMAP_HOLDING
             self._block_3_input_regs = WPM3i_B3_REGMAP_INPUT
+            self._block_4_input_regs = WPM3i_B4_REGMAP_INPUT
             self._block_1_start_address = WPM3i_B1_START_ADDR
             self._block_2_start_address = WPM3i_B2_START_ADDR
             self._block_3_start_address = WPM3i_B3_START_ADDR
+            self._block_4_start_address = WPM3i_B4_START_ADDR
         self._slave = slave
         self._update_on_read = update_on_read
 
@@ -418,6 +572,11 @@ class StiebelEltronAPI():
                 unit=self._slave,
                 address=self._block_3_start_address,
                 count=len(self._block_3_input_regs)).registers
+            if self._block_4_start_address is not None:
+                    block_4_result_input = self._conn.read_input_registers(
+                        unit=self._slave,
+                        address=self._block_4_start_address,
+                        count=len(self._block_4_input_regs)).registers
         except AttributeError:
             # The unit does not reply reliably
             ret = False
@@ -438,6 +597,11 @@ class StiebelEltronAPI():
                     block_3_result_input[
                         self._block_3_input_regs[k]['addr'] - self._block_3_start_address]
 
+            if self._block_4_start_address is not None:
+                for k in self._block_4_input_regs:
+                    self._block_4_input_regs[k]['value'] = \
+                        block_4_result_input[
+                            self._block_4_input_regs[k]['addr'] - self._block_4_start_address]
         return ret
 
     def twos_comp(self, val, bits):
@@ -460,6 +624,9 @@ class StiebelEltronAPI():
             value_entry = self._block_2_holding_regs.get(name)
         if value_entry is None:
             value_entry = self._block_3_input_regs.get(name)
+        if self._block_4_start_address is not None:
+            if value_entry is None:
+                value_entry = self._block_4_input_regs.get(name)
         if value_entry is None:
             return None
 
@@ -517,7 +684,7 @@ class StiebelEltronAPI():
             self.update()
         return self.get_conv_val('RELATIVE_HUMIDITY_HC1')
 
-    # Get Heating Info
+    # Get Info->System->Heating Info
 
     def get_outside_temp(self):
         """Get the outside temperature."""
@@ -561,12 +728,51 @@ class StiebelEltronAPI():
             self.update()
         return self.get_conv_val('HEATING_PRESSURE')
 
-    def get_heating_flow_rate(self):
-        """Get the heating circuit flow rate."""
+    def get_heating_or_dhw_flow_rate(self):
+        """Get the heating or hot water circuit flow rate."""
         if self._update_on_read:
             self.update()
-        return self.get_conv_val('FLOW_RATE')
-#TODO: The flow rate seems a factor of 10 too large 
+        return round(self.get_conv_val('FLOW_RATE') / 10, 2)
+#TODO: The flow rate seems a factor of 10 too large
+
+    # Get Info->System->DHW hot water Info
+    def get_actual_dhw_temp(self):
+        """Get the hot water circuit DHW temperature."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('ACTUAL_TEMPERATURE_A')
+
+    def get_set_dhw_temp(self):
+        """Get the hot water circuit DHW set temperature."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('SET_TEMPERATURE_A')
+
+    # Get Info->System->Source Info
+    def get_source_temp(self):
+        """Get the source return temperature."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('SOURCE_TEMPERATURE')
+
+    def get_source_pressure(self):
+        """Get the source circuit pressure."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('SOURCE_PRESSURE')
+
+    # Get Info->Source->Amount of Heat Info
+    def get_vd_heating_day_kwh(self):
+        """Get the day kWh for vd heating."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('VD_HEATING_DAY_A')
+
+    def get_vd_heating_total_kwh(self):
+        """Get the total kWh for vd heating."""
+        if self._update_on_read:
+            self.update()
+        return (self.get_conv_val('VD_HEATING_TOTAL_MWH')*1000) + self.get_conv_val('VD_HEATING_TOTAL_KWH')
 
     # Handle operation mode
 
