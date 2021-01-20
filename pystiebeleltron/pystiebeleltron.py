@@ -264,30 +264,30 @@ WPM3i_B1_REGMAP_INPUT = {
 }
 
 # WPM 3(i) Block 2 System parameters (Read/write holding register) - page 24
-WPM3i_B2_START_ADDR = 1501
+WPM3i_B2_START_ADDR = 1501-1
 
 WPM3i_B2_REGMAP_HOLDING = {
-    'OPERATING_MODE':                           {'addr': 1501, 'type': 8, 'value': 0},
-    'HEATING_CIRCUIT_1__COMFORT_TEMPERATURE':   {'addr': 1502, 'type': 2, 'value': 0},
-    'HEATING_CIRCUIT_1__ECO_TEMPERATURE':       {'addr': 1503, 'type': 2, 'value': 0},
-    'HEATING_CIRCUIT_1__HEATING_CURVE_RISE':    {'addr': 1504, 'type': 7, 'value': 0},
-    'HEATING_CIRCUIT_2__COMFORT_TEMPERATURE':   {'addr': 1505, 'type': 2, 'value': 0},
-    'HEATING_CIRCUIT_2__ECO_TEMPERATURE':       {'addr': 1506, 'type': 2, 'value': 0},
-    'HEATING_CIRCUIT_2__HEATING_CURVE_RISE':    {'addr': 1507, 'type': 7, 'value': 0},
-    'FIXED_VALUE_OPERATION':                    {'addr': 1508, 'type': 2, 'value': 0},
-    'DUAL_MODE_TEMP_HZG':                       {'addr': 1509, 'type': 2, 'value': 0},
-    'DHW__COMFORT_TEMPERATURE':                 {'addr': 1510, 'type': 2, 'value': 0},
-    'DHW__ECO_TEMPERATURE':                     {'addr': 1511, 'type': 2, 'value': 0},
-    'DHW_STAGES':                               {'addr': 1512, 'type': 8, 'value': 0},
-    'DUAL_MODE_TEMP_WW':                        {'addr': 1513, 'type': 2, 'value': 0},
-    'AREA_COOLING__SET_FLOW_TEMPERATURE':       {'addr': 1514, 'type': 2, 'value': 0},
-    'AREA_COOLING__FLOW_TEMP_HYSTERESIS':       {'addr': 1515, 'type': 2, 'value': 0},
-    'AREA_COOLING__SET_ROOM_TEMPERATURE':       {'addr': 1516, 'type': 2, 'value': 0},
-    'FAN_COOLING__SET_FLOW_TEMPERATURE':        {'addr': 1517, 'type': 2, 'value': 0},
-    'FAN_COOLING__FLOW_TEMP_HYSTERESIS':        {'addr': 1518, 'type': 2, 'value': 0},
-    'FAN_COOLING__SET_ROOM_TEMPERATURE':        {'addr': 1519, 'type': 2, 'value': 0},
-    'RESET':                                    {'addr': 1520, 'type': 6, 'value': 0},
-    'RESTART_ISG':                              {'addr': 1521, 'type': 6, 'value': 0}
+    'OPERATING_MODE':                           {'addr': 1501-1, 'type': 8, 'value': 0},
+    'HEATING_CIRCUIT_1__COMFORT_TEMPERATURE':   {'addr': 1502-1, 'type': 2, 'value': 0},
+    'HEATING_CIRCUIT_1__ECO_TEMPERATURE':       {'addr': 1503-1, 'type': 2, 'value': 0},
+    'HEATING_CIRCUIT_1__HEATING_CURVE_RISE':    {'addr': 1504-1, 'type': 7, 'value': 0},
+    'HEATING_CIRCUIT_2__COMFORT_TEMPERATURE':   {'addr': 1505-1, 'type': 2, 'value': 0},
+    'HEATING_CIRCUIT_2__ECO_TEMPERATURE':       {'addr': 1506-1, 'type': 2, 'value': 0},
+    'HEATING_CIRCUIT_2__HEATING_CURVE_RISE':    {'addr': 1507-1, 'type': 7, 'value': 0},
+    'FIXED_VALUE_OPERATION':                    {'addr': 1508-1, 'type': 2, 'value': 0},
+    'DUAL_MODE_TEMP_HZG':                       {'addr': 1509-1, 'type': 2, 'value': 0},
+    'DHW__COMFORT_TEMPERATURE':                 {'addr': 1510-1, 'type': 2, 'value': 0},
+    'DHW__ECO_TEMPERATURE':                     {'addr': 1511-1, 'type': 2, 'value': 0},
+    'DHW_STAGES':                               {'addr': 1512-1, 'type': 8, 'value': 0},
+    'DUAL_MODE_TEMP_WW':                        {'addr': 1513-1, 'type': 2, 'value': 0},
+    'AREA_COOLING__SET_FLOW_TEMPERATURE':       {'addr': 1514-1, 'type': 2, 'value': 0},
+    'AREA_COOLING__FLOW_TEMP_HYSTERESIS':       {'addr': 1515-1, 'type': 2, 'value': 0},
+    'AREA_COOLING__SET_ROOM_TEMPERATURE':       {'addr': 1516-1, 'type': 2, 'value': 0},
+    'FAN_COOLING__SET_FLOW_TEMPERATURE':        {'addr': 1517-1, 'type': 2, 'value': 0},
+    'FAN_COOLING__FLOW_TEMP_HYSTERESIS':        {'addr': 1518-1, 'type': 2, 'value': 0},
+    'FAN_COOLING__SET_ROOM_TEMPERATURE':        {'addr': 1519-1, 'type': 2, 'value': 0},
+    'RESET':                                    {'addr': 1520-1, 'type': 6, 'value': 0},
+    'RESTART_ISG':                              {'addr': 1521-1, 'type': 6, 'value': 0}
 }
 
 WPM3i_B2_OPERATING_MODE_READ = {
@@ -840,6 +840,45 @@ class StiebelEltronAPI():
         if self._update_on_read:
             self.update()
         return (self.get_conv_val('ALL_HEAT_PUMPS__POWER_CONSUMPTION__VD_HEATING_DAY__KWH'))
+
+    # System Patameters
+
+    def get_operating_mode(self):
+        """Return the current mode of operation."""
+        if self._update_on_read:
+            self.update()
+        op_mode = self.get_conv_val('OPERATING_MODE')
+        return WPM3i_B2_OPERATING_MODE_READ.get(op_mode, 'UNKNOWN')
+
+    def get_heating_circuit1_comfort_temp(self):
+        """Get the heating circuit 1 comfort temperature."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('HEATING_CIRCUIT_1__COMFORT_TEMPERATURE')
+
+    def get_heating_circuit1_eco_temp(self):
+        """Get the heating circuit 1 eco temperature."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('HEATING_CIRCUIT_1__ECO_TEMPERATURE')
+
+    def get_heating_circuit1_curve_rise(self):
+        """Get the heating circuit 1 curve rise."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('HEATING_CIRCUIT_1__HEATING_CURVE_RISE')
+
+    def get_dhw_comfort_temp(self):
+        """Get the dhw comfort temperature."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('DHW__COMFORT_TEMPERATURE')
+
+    def get_dhw_eco_temp(self):
+        """Get the dhw eco temperature."""
+        if self._update_on_read:
+            self.update()
+        return self.get_conv_val('DHW__ECO_TEMPERATURE')
 
     # Handle operation mode
 
